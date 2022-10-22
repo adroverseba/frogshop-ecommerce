@@ -1,0 +1,28 @@
+@use "./vars";
+
+.title-404 {
+  margin: 0.2em auto;
+  text-align: center;
+  font-size: 10em;
+  font-weight: 200;
+}
+
+.text-404 {
+  font-size: 2em;
+  text-align: center;
+  font-weight: 100;
+}
+
+.button-404 {
+  display: block;
+  font-weight: 300;
+  font-size: 1.2em;
+  text-decoration: none;
+  color: var(--white);
+  background-color: var(--hospital-green);
+  padding: 1em;
+  border-radius: 10px;
+  text-align: center;
+  width: 15em;
+  margin: 0 auto;
+}

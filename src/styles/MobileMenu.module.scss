@@ -1,0 +1,64 @@
+@import 'vars';
+.MobileMenu {
+  /*width combo WebKit + Mozilla browsers*/
+  width: 100%;
+  height: 100vh;
+  // width: -moz-available;
+  // width: -webkit-fill-available;
+  // width: fill-available;
+  left: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: $--white;
+}
+.MobileMenu img {
+  width: 14px;
+  // align-self: end;
+  padding: 10px;
+  // color: black;
+}
+// .MobileMenu img:hover {
+//   cursor: pointer;
+//   filter: $--hover-red-filter);
+// }
+.MobileMenu a {
+  text-decoration: none;
+  color: $--black;
+  font-weight: bold;
+  display: block;
+  padding: 8px;
+}
+
+.MobileMenu hr {
+  width: 100%;
+  border-top: 1px solid $--text-input-field;
+}
+.MobileMenu ul {
+  padding: 0;
+  margin-top: 24px 0 0;
+  list-style: none;
+}
+.MobileMenu ul:nth-child(1) {
+  border-bottom: 1px solid $--very-light-pink;
+}
+.MobileMenu ul li {
+  margin-bottom: 24px;
+}
+.MobileMenu a.email {
+  font-size: $--sm;
+  font-weight: 300 !important;
+  padding: 0;
+}
+.MobileMenu a.sign-out {
+  padding: 0;
+  font-size: $--sm;
+  color: $--hospital-green !important;
+}
+
+@media (min-width: 640px) {
+  .MobileMenu {
+    display: none;
+  }
+}
