@@ -6,7 +6,9 @@ import Image from 'next/image';
 export const MobileMenu = ({ setToggleMobileMenu }) => {
   return (
     <div className={styles.MobileMenu}>
-      <Image src={closeIcon} alt="close" onClick={() => setToggleMobileMenu(false)} width={25} height={25} layout="fixed" />
+      <div>
+        <Image src={closeIcon} alt="close" onClick={() => setToggleMobileMenu(false)} width={25} height={25} layout="fixed" />
+      </div>
       <ul>
         <li>
           <a href="/">CATEGORIES</a>

@@ -13,6 +13,7 @@
   position: absolute;
   background-color: $--white;
 }
+
 .MobileMenu img {
   width: 14px;
   // align-self: end;
@@ -60,5 +61,11 @@
 @media (min-width: 640px) {
   .MobileMenu {
     display: none;
+  }
+}
+
+@media (max-height: 750px) {
+  .MobileMenu ul li {
+    margin-bottom: 10px;
   }
 }
