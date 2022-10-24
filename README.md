@@ -1,7 +1,8 @@
 # Frog-shop ecommerce🐸 - NextJS
 
 Este es un proyecto en **[Next.js](https://nextjs.org/)** lanzado con [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-El mismo cuenta con caracteristicas de **PWA**, mejoras en el **SEO** y conexion con _backend_ configurado a base de datos _postgreSQL_
+El mismo cuenta con caracteristicas de **PWA**, mejoras en el **SEO** y conexion con _backend_ configurado a base de datos _postgreSQL_. <br>
+🔗 [Link al repo del Back](https://github.com/adroverseba/ecommerce-backend-postgreSQL)
 
 ## Instalacion
 
