@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "petgram-frogshop-ecommerce-fq7g",
+  "name": "petgram-adroverseba",
   "builds": [{ "use": "@vercel/static-build", "src": "package.json" }],
   "routes": [
     {
