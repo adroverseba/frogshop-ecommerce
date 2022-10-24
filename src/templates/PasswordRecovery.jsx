@@ -1,25 +1,25 @@
-import React from "react";
-import logos from "@logos/logo_frogshop.svg";
-import iconMessage from "@icons/email.svg";
+import React from 'react';
+import logos from '@logos/logo_frogshop.svg';
+import iconMessage from '@icons/email.svg';
+import Link from 'next/link';
+import Image from 'next/image';
 
-import "../styles/PasswordRecovery.scss";
+import styles from 'styles/PasswordRecovery.module.scss';
 
 export const PasswordRecovery = () => {
   return (
-    <div className="PasswordRecovery">
-      <div className="form-container">
-        <img src={logos} alt="logo" className="logo" />
+    <div className={styles.PasswordRecovery}>
+      <div className={styles['form-container']}>
+        <Image src={logos} alt="logo" className="logo" />
         <h1 className="title">Email has been sent!</h1>
-        <p className="subtitle">
-          Please check your inbox for instructions on how to reset the password
-        </p>
-        <div className="email-image">
-          <img src={iconMessage} alt="email" />
+        <p className="subtitle">Please check your inbox for instructions on how to reset the password</p>
+        <div className={styles['email-image']}>
+          <Image src={iconMessage} alt="email" />
         </div>
-        <button className="primary-button login-button">Login</button>
+        <button className={(styles['primary-button'], styles['login-button'])}>Login</button>
         <p className="resend">
-          <span>Didn't receive the email?</span>
-          <a href="/">Resend</a>
+          <span>Didn`t receive the email?</span>
+          <Link href="/">Resend</Link>
         </p>
       </div>
     </div>

@@ -61,7 +61,18 @@
   font-weight: bold;
 }
 
-.primary-button {
+.MyOrder button {
+  background: none;
+  border: 0;
+  color: inherit;
+  /* cursor: default; */
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+}
+
+.MyOrder .primary-button {
   background-color: $--hospital-green;
   border-radius: 8px;
   border: none;

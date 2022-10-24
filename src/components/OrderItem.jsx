@@ -11,7 +11,9 @@ export const OrderItem = ({ product: { image, name, price }, remove, indexValue 
       </figure>
       <p>{name}</p>
       <p>${price}</p>
-      <Image src={closeIcon} alt="close" onClick={() => remove(indexValue)} />
+      <button onClick={() => remove(indexValue)}>
+        <Image src={closeIcon} alt="close" />
+      </button>
     </div>
   );
 };

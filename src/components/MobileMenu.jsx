@@ -2,6 +2,7 @@ import React from 'react';
 import styles from 'styles/MobileMenu.module.scss';
 import closeIcon from '@icons/icon_close.png';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const MobileMenu = ({ setToggleMobileMenu }) => {
   return (
@@ -11,46 +12,46 @@ export const MobileMenu = ({ setToggleMobileMenu }) => {
       </div>
       <ul>
         <li>
-          <a href="/">CATEGORIES</a>
+          <Link href="/">CATEGORIES</Link>
         </li>
         <li>
-          <a href="/">All</a>
+          <Link href="/">All</Link>
         </li>
         <li>
-          <a href="/">Clothes</a>
+          <Link href="/">Clothes</Link>
         </li>
         <li>
-          <a href="/">Electronics</a>
+          <Link href="/">Electronics</Link>
         </li>
         <li>
-          <a href="/">Furnitures</a>
+          <Link href="/">Furnitures</Link>
         </li>
         <li>
-          <a href="/">Toys</a>
+          <Link href="/">Toys</Link>
         </li>
         <li>
-          <a href="/">Others</a>
+          <Link href="/">Others</Link>
         </li>
       </ul>
       <hr />
       <ul>
         <li>
-          <a href="/">My Orders</a>
+          <Link href="/">My Orders</Link>
         </li>
         <li>
-          <a href="/">My Account</a>
+          <Link href="/">My Account</Link>
         </li>
       </ul>
       <ul>
         <li>
-          <a href="/" className={styles.email}>
+          <Link href="/" className={styles.email}>
             myemail@example.com
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/" className={styles['sign-out']}>
+          <Link href="/" className={styles['sign-out']}>
             Sign Out
-          </a>
+          </Link>
         </li>
       </ul>
     </div>

@@ -1,5 +1,6 @@
-import { OrderItem } from 'components/OrderItem';
 import React from 'react';
+import { OrderItem } from 'components/OrderItem';
+import Image from 'next/image';
 
 export const Checkout = () => {
   return (
@@ -13,7 +14,7 @@ export const Checkout = () => {
               <span>6 articles</span>
             </p>
             <p>$560.00</p>
-            <img src="./icons/flechita.svg" alt="arrow" />
+            <Image src="./icons/flechita.svg" alt="arrow" />
           </div>
         </div>
         <OrderItem />

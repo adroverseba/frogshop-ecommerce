@@ -1,28 +1,33 @@
-@use "./vars";
+@import './vars';
 
-.PasswordRecovery {
+.Login {
   width: 100%;
   height: 100vh;
   display: grid;
   place-items: center;
 }
-.form-container {
+
+.Login-container {
   display: grid;
   grid-template-rows: auto 1fr auto;
   width: 300px;
-  justify-items: center;
 }
-.form-container .logo {
-  width: 350px;
+
+.logo-log {
+  width: 400px;
   margin-bottom: 48px;
   justify-self: center;
   display: block;
+  // background-color: black;
+  // filter: brightness(1);
 }
+
 .title {
   font-size: var(--lg);
   margin-bottom: 12px;
   text-align: center;
 }
+
 .subtitle {
   color: var(--very-light-pink);
   font-size: var(--md);
@@ -31,29 +36,28 @@
   margin-bottom: 32px;
   text-align: center;
 }
-.email-image {
-  width: 132px;
-  height: 132px;
-  border-radius: 50%;
-  background-color: var(--text-input-field);
+
+.form {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 24px;
+  flex-direction: column;
 }
-.email-image img {
-  width: 80px;
-}
-.resend {
+
+.label {
   font-size: var(--sm);
+  font-weight: bold;
+  margin-bottom: 4px;
 }
-.resend span {
-  color: var(--very-light-pink);
+
+.input {
+  background-color: var(--text-input-field);
+  border: none;
+  border-radius: 8px;
+  height: 30px;
+  font-size: var(--md);
+  padding: 6px;
+  margin-bottom: 12px;
 }
-.resend a {
-  color: var(--hospital-green);
-  text-decoration: none;
-}
+
 .primary-button {
   background-color: var(--hospital-green);
   border-radius: 8px;
@@ -65,16 +69,15 @@
   font-weight: bold;
   height: 50px;
 }
+
 .login-button {
   margin-top: 14px;
   margin-bottom: 30px;
 }
-@media (max-width: 640px) {
-  .form-container .logo {
-    display: none;
-  }
 
-  .PasswordRecovery .form-container {
-    grid-template-rows: auto;
+@media (max-width: 640px) {
+  .logo-log {
+    width: 180px;
+    display: block;
   }
 }

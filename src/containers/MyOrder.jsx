@@ -29,7 +29,7 @@ export const MyOrder = ({ setToggleOrders }) => {
           <OrderItem product={prod} remove={removeFromCart} key={++i} indexValue={index} />
         ))}
       </div>
-      <div className="order">
+      <div className={styles.order}>
         <p>
           <span>Total</span>
         </p>

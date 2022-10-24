@@ -24,7 +24,9 @@ export const ProductItem = ({ product }) => {
           <p>${product.price}</p>
           <p>{product.name}</p>
         </div>
-        <figure onClick={() => handleClick(product)}>{added ? <Image src={addedToCart} alt="" /> : <Image src={addToCartImage} alt="" />}</figure>
+        <button href="" onClick={() => handleClick(product)}>
+          <figure>{added ? <Image src={addedToCart} alt="" width={40} /> : <Image src={addToCartImage} alt="" />}</figure>
+        </button>
       </div>
     </div>
   );

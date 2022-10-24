@@ -17,6 +17,7 @@
 }
 .product-info figure {
   margin: 0;
+  height: 45px;
 }
 .product-info figure img:active {
   background-color: rgb(227, 248, 227);
@@ -42,6 +43,17 @@
   width: 35px;
   height: 35px;
   cursor: pointer;
+}
+
+.ProductItem button {
+  background: none;
+  border: 0;
+  color: inherit;
+  /* cursor: default; */
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
 }
 
 @media (max-width: 640px) {

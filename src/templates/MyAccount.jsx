@@ -1,31 +1,27 @@
-import React from "react";
-import "../styles/MyAccount.scss";
+import React from 'react';
+import styles from 'styles/MyAccount.module.scss';
 
 export const MyAccount = () => {
   return (
-    <div className="MyAccount">
-      <div className="form-container">
-        <h1 className="title">My account</h1>
-        <form action="/" className="form">
+    <div className={styles.MyAccount}>
+      <div className={styles['form-container']}>
+        <h1 className={styles.title}>My account</h1>
+        <form action="/" className={styles.form}>
           <div>
-            <label htmlFor="name" className="label">
+            <label htmlFor="name" className={styles.label}>
               Name
             </label>
-            <p className="value">Camila Yokoo</p>
-            <label htmlFor="email" className="label">
+            <p className={styles.value}>Camila Yokoo</p>
+            <label htmlFor="email" className={styles.label}>
               Email
             </label>
-            <p className="value">camilayokoo@gmail.com</p>
-            <label htmlFor="password" className="label">
+            <p className={styles.value}>camilayokoo@gmail.com</p>
+            <label htmlFor="password" className={styles.label}>
               Password
             </label>
-            <p className="value">*********</p>
+            <p className={styles.value}>*********</p>
           </div>
-          <input
-            type="submit"
-            defaultValue="Edit"
-            className="secondary-button login-button"
-          />
+          <input type="submit" defaultValue="Edit" className={(styles['secondary-button'], styles['login-button'])} />
         </form>
       </div>
     </div>

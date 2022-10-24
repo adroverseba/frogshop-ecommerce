@@ -1,14 +1,15 @@
-import React from "react";
-import "../styles/NotFound.scss";
+import Link from 'next/link';
+import React from 'react';
+import styles from 'styles/NotFound.module.scss';
 
 export const NotFound = () => {
   return (
     <div>
-      <h1 className="title-404">404</h1>
+      <h1 className={styles['title-404']}>404</h1>
       <p className="text-404">Oops! Pagina no encontrada.</p>
-      <a className="button-404" href="/">
+      <Link className={styles['button-404']} href="/">
         Regrese a la página inicial.
-      </a>
+      </Link>
     </div>
   );
 };

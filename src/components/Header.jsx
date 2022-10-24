@@ -71,12 +71,14 @@ export const Header = () => {
       </div>
       <div className={styles['navbar-right']}>
         <ul>
-          <li className={styles['navbar-email']} onClick={() => handleToggleMenues('menu')}>
-            user@example.com
+          <li className={styles['navbar-email']}>
+            <button onClick={() => handleToggleMenues('menu')}>user@example.com</button>
           </li>
-          <li className={styles['navbar-shopping-cart']} onClick={() => handleToggleMenues('cart')}>
-            <Image src={ShoppingCart} alt="shopping cart" />
-            {cart.length > 0 && <div>{cart.length}</div>}
+          <li className={styles['navbar-shopping-cart']}>
+            <button onClick={() => handleToggleMenues('cart')}>
+              <Image src={ShoppingCart} alt="shopping cart" />
+              {cart.length > 0 && <div>{cart.length}</div>}
+            </button>
           </li>
         </ul>
       </div>

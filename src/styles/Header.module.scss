@@ -37,7 +37,7 @@
   text-decoration: none;
   color: $--very-light-pink;
   border: 1px solid $--white;
-  padding: 8px;
+  padding: 5px;
   border-radius: 8px;
 }
 .navbar-email {
@@ -45,18 +45,21 @@
   font-size: $--sm;
   // padding: 0 8px;
   margin-right: 12px;
+  // text-decoration: none;
 }
+
 .navbar-left ul li a:hover,
 .navbar-right ul li:hover {
   border: 1px solid $--hospital-green;
   color: $--hospital-green;
-  padding: 8px;
+  padding: 5px;
   border-radius: 8px;
   cursor: pointer;
 }
 
-.navbar-shopping-cart {
+.Nav .navbar-shopping-cart {
   position: relative;
+  padding: 5px;
 }
 
 .navbar-shopping-cart img {
@@ -77,6 +80,18 @@
   justify-content: center;
   align-items: center;
 }
+
+.Nav button {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 5px;
+}
+
 @media (max-width: 640px) {
   .nav-logo {
     width: 150px;
