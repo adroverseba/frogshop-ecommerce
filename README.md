@@ -12,7 +12,7 @@ Luego de realizar el clonado del repo o descarga del mismo, ejecuta `npm install
 npm run dev
 ```
 
-APara despues abrir [http://localhost:3000](http://localhost:3000) con tu navegador para ver los resultados
+Para despues abrir [http://localhost:3000](http://localhost:3000) con tu navegador y ver los resultados
 
 ## Deploy en Vercel
 

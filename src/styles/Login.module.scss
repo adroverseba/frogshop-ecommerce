@@ -1,4 +1,4 @@
-@import './vars';
+@import 'vars';
 
 .Login {
   width: 100%;
@@ -58,8 +58,8 @@
   margin-bottom: 12px;
 }
 
-.primary-button {
-  background-color: var(--hospital-green);
+.Login .primary-button {
+  background-color: #acd9b2;
   border-radius: 8px;
   border: none;
   color: var(--white);
@@ -70,7 +70,7 @@
   height: 50px;
 }
 
-.login-button {
+.Login .login-button {
   margin-top: 14px;
   margin-bottom: 30px;
 }
