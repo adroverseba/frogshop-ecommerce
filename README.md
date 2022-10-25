@@ -6,13 +6,13 @@ El mismo cuenta con caracteristicas de **PWA**, mejoras en el **SEO** y conexion
 
 ## Instalacion
 
-Luego de realizar el clonado del repo o descarga del mismo, ejecuta
+Luego de realizar el clonado del repo o descarga del mismo, ejecuta `npm install` para descargar todas las dependencias del proyecto, luego
 
 ```bash
 npm run dev
 ```
 
-Abri [http://localhost:3000](http://localhost:3000) con tu navegador para ver los resultados
+APara despues abrir [http://localhost:3000](http://localhost:3000) con tu navegador para ver los resultados
 
 ## Deploy en Vercel
 
