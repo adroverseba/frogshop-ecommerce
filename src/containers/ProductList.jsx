@@ -1,9 +1,9 @@
 import { ProductItem } from 'components/ProductItem';
 import { useGetProducts } from 'hooks/useGetProducts';
-
+import { endPoints } from 'services/api';
 import styles from 'styles/ProductList.module.scss';
 
-const API = 'https://enigmatic-journey-93971.herokuapp.com/api/v1/products';
+const API = endPoints.products.getProducts;
 
 export const ProductList = () => {
   const products = useGetProducts(API);
