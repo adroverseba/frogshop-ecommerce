@@ -1,8 +1,15 @@
+import { useAuth } from 'hooks/useAuth';
 import Link from 'next/link';
 import React from 'react';
 import styles from 'styles/Menu.module.scss';
 
-export const Menu = () => {
+export const Menu = ({ setToggle }) => {
+  const { logOut } = useAuth();
+
+  const handleSignOut = () => {
+    setToggle(false);
+    logOut();
+  };
   return (
     <div className={styles.Menu}>
       <ul>
@@ -15,7 +22,9 @@ export const Menu = () => {
           <Link href="/">My account</Link>
         </li>
         <li>
-          <Link href="/">Sign out</Link>
+          <Link href="/login">
+            <button onClick={() => handleSignOut()}>Sign out</button>
+          </Link>
         </li>
       </ul>
     </div>

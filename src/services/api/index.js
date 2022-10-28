@@ -8,7 +8,7 @@ export const endPoints = {
     changePassword: `${API}/api/${VERSION}/auth/change-password`,
   },
   products: {
-    getProducts: `${API}/api/${VERSION}/products`,
+    getProducts: (limit, offset) => (limit === 0 && offset === 0 ? `${API}/api/${VERSION}/products` : `${API}/api/${VERSION}/products?limit=${limit}&offset=${offset}`),
     getProduct: (id) => `${API}/api/${VERSION}/products/${id}`,
     createProduct: `${API}/api/${VERSION}/products`,
   },
@@ -37,6 +37,6 @@ export const endPoints = {
     addItemToOrders: `${API}/api/${VERSION}/orders/add-item`,
   },
   profile: {
-    getMyOrders: `${API}/api/${VERSION}/my-orders`,
+    getMyOrders: `${API}/api/${VERSION}/profile/my-orders`,
   },
 };
