@@ -1,6 +1,7 @@
 // import Nav from 'common/Nav';
 import { Header } from 'components/Header';
 import React from 'react';
+import { HeaderDashboard } from 'components/HeaderDashboard';
 
 // export const MainLayout = ({ children }) => {
 //   return (
@@ -16,6 +17,7 @@ export const MainLayout = ({ children }) => {
   return (
     <div>
       <Header />
+      <HeaderDashboard />
       {/* <Nav /> */}
       <main>{children}</main>
     </div>

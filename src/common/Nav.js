@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-export default function Nav() {
+export function Nav() {
   const router = useRouter();
   const route = router.pathname.substring(1);
   console.log(route);
