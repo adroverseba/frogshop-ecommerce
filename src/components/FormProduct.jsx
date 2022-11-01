@@ -1,8 +1,9 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { createProductSchema } from 'schemas/product.schema';
 
 export function FormProduct() {
   const formRef = useRef(null);
+  const [errorFormData, setErrorFormData] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,8 +16,11 @@ export function FormProduct() {
     const data = { name, price, description, image, categoryId };
 
     const { error } = createProductSchema.validate(data, { abortEarly: false });
+
+    setErrorFormData([]);
     if (error) {
-      console.log(error);
+      setErrorFormData(error.details.map((err) => err.message));
+      // console.log(error.details.map((err) => err.message));
     }
 
     console.log(data);
@@ -105,14 +109,23 @@ export function FormProduct() {
             </div>
           </div>
         </div>
-        <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+        <div className="px-4 py-3 bg-gray-50 flex justify-between sm:px-6 items-center">
           <button
             type="submit"
-            className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="justify-center  shrink-0 py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-16 max-h-10"
             onClick={handleSubmit}
           >
             Save
           </button>
+          {errorFormData && (
+            <ul className=" bg-red-50 rounded-md w-9/12 list-disc px-2">
+              {errorFormData.map((err, i) => (
+                <li className="text-red-700 " key={i}>
+                  {err}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </form>
