@@ -8,7 +8,7 @@ const API = endPoints.products.getProducts(0, 0);
 
 export const ProductList = () => {
   const products = useGetProducts(API);
-  console.log(products);
+  // console.log(products);
   return (
     <section className={styles['main-container']}>
       <div className={styles.ProductList}>

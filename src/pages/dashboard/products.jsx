@@ -4,11 +4,23 @@ import { PlusIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
 import Modal from 'common/Modal';
 import { Menu, Transition } from '@headlessui/react';
 import { FormProduct } from 'components/FormProduct';
+import { useGetProducts } from 'hooks/useGetProducts';
+import { endPoints } from 'services/api';
+import Image from 'next/image';
+import { useAlert } from 'hooks/useAlert';
+import { Alert } from 'common/Alert';
 
-const products = () => {
+const Products = () => {
   const [open, setOpen] = useState(false);
+  const { alert, setAlert, toggleAlert } = useAlert();
+
+  const API = endPoints.products.getProducts(0, 0);
+  //hago uso del custom hook, el segundo argumento son los cambios que escucha
+  const products = useGetProducts(API, alert);
+
   return (
     <>
+      <Alert alert={alert} handleClose={toggleAlert} />
       <div className="lg:flex lg:items-center lg:justify-between p-2">
         <div className="min-w-0 flex-1">
           <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight my-7 ">List of Products</h2>
@@ -89,7 +101,7 @@ const products = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {/* {products.map((prod) => (
+                  {products.map((prod) => (
                     <tr key={prod.id}>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
@@ -121,7 +133,7 @@ const products = () => {
                         </a>
                       </td>
                     </tr>
-                  ))} */}
+                  ))}
                 </tbody>
               </table>
             </div>
@@ -129,10 +141,10 @@ const products = () => {
         </div>
       </div>
       <Modal open={open} setOpen={setOpen}>
-        <FormProduct />
+        <FormProduct setOpen={setOpen} setAlert={setAlert} />
       </Modal>
     </>
   );
 };
 
-export default products;
+export default Products;

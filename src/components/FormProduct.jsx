@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
 import { createProductSchema } from 'schemas/product.schema';
+import { addProduct } from 'services/api/product';
 
-export function FormProduct() {
+export function FormProduct({ setOpen, setAlert }) {
   const formRef = useRef(null);
   const [errorFormData, setErrorFormData] = useState([]);
 
@@ -19,11 +20,30 @@ export function FormProduct() {
 
     setErrorFormData([]);
     if (error) {
-      setErrorFormData(error.details.map((err) => err.message));
+      return setErrorFormData(error.details.map((err) => err.message));
       // console.log(error.details.map((err) => err.message));
     }
-
     console.log(data);
+    return addProduct(data)
+      .then(() => {
+        setAlert({
+          active: true,
+          message: 'Producto creado con exito',
+          type: 'success',
+          autoClose: true,
+        });
+        formRef.current.reset();
+        setOpen(false);
+      })
+      .catch((error) => {
+        setAlert({
+          active: true,
+          message: error.message,
+          type: 'error',
+          autoClose: true,
+        });
+        setOpen(false);
+      });
   };
 
   return (
