@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { Fragment } from 'react';
 import { PlusIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
 import Modal from 'common/Modal';
-import { Nav } from 'common/Nav';
 import { Menu, Transition } from '@headlessui/react';
+import { FormProduct } from 'components/FormProduct';
 
 const products = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <Nav />
       <div className="lg:flex lg:items-center lg:justify-between p-2">
         <div className="min-w-0 flex-1">
           <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight my-7 ">List of Products</h2>
@@ -130,7 +129,7 @@ const products = () => {
         </div>
       </div>
       <Modal open={open} setOpen={setOpen}>
-        <h1>Hola Mundo</h1>
+        <FormProduct />
       </Modal>
     </>
   );

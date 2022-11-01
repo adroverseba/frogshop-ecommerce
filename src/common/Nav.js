@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 export function Nav() {
   const router = useRouter();
   const route = router.pathname.substring(1);
-  console.log(route);
+  // console.log(route);
 
   return (
     <nav className="bg-white shadow">

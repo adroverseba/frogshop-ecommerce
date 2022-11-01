@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { endPoints } from 'services/api';
 import { Pagination } from 'common/Pagination';
 import { Chart } from 'common/Chart';
-import { PlusIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
-import { Menu, Transition } from '@headlessui/react';
-import Link from 'next/link';
+// import { PlusIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
+// import { Menu, Transition } from '@headlessui/react';
+// import Link from 'next/link';
 
 const PRODUCT_LIMIT = 4;
 const PRODUCT_OFFSET = 0;
@@ -49,29 +49,6 @@ export default function Dashboard() {
   };
   return (
     <>
-      <div className="lg:flex lg:items-center lg:justify-between p-2">
-        <div className="min-w-0 flex-1">
-          <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight my-7 ">Dashboard</h2>
-        </div>
-        <div className="mt-5 flex lg:mt-0 lg:ml-4 justify-between items-center ">
-          <Link href={'/dashboard/products'}>
-            <button
-              type="button"
-              className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 mr-2"
-            >
-              Productos
-            </button>
-          </Link>
-          <Link href={'/dashboard'}>
-            <button
-              type="button"
-              className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            >
-              Ventas
-            </button>
-          </Link>
-        </div>
-      </div>
       <Chart className="mb-8 mt-2 h-4" chartData={data} />
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 ">

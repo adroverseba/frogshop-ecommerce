@@ -1,16 +1,12 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { useAuth } from 'hooks/useAuth';
+import Link from 'next/link';
 
-const userData = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
-  imageUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-};
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', current: true },
-  { name: 'Productos', href: '/dashboard/products/', current: false },
+  { name: 'Productos', href: '/dashboard/products', current: false },
   { name: 'Ventas', href: '#', current: false },
 ];
 const userNavigation = [
@@ -24,6 +20,14 @@ function classNames(...classes) {
 }
 
 export const HeaderDashboard = () => {
+  const { user } = useAuth();
+
+  const userData = {
+    email: user?.email,
+    role: user?.role,
+    imageUrl: `https://ui-avatars.com/api/?background=random&name=${user?.email}`,
+  };
+
   return (
     <>
       <Disclosure as="nav" className="bg-gray-800">
@@ -35,14 +39,14 @@ export const HeaderDashboard = () => {
                   <div className="hidden md:block">
                     <div className="ml-10 flex items-baseline space-x-4">
                       {navigation.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className={classNames(item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
-                          aria-current={item.current ? 'page' : undefined}
-                        >
-                          {item.name}
-                        </a>
+                        <Link key={item.name} href={item.href}>
+                          <button
+                            className={classNames(item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium')}
+                            aria-current={item.current ? 'page' : undefined}
+                          >
+                            {item.name}
+                          </button>
+                        </Link>
                       ))}
                     </div>
                   </div>
