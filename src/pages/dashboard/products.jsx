@@ -9,14 +9,36 @@ import { endPoints } from 'services/api';
 import Image from 'next/image';
 import { useAlert } from 'hooks/useAlert';
 import { Alert } from 'common/Alert';
+import { deleteProduct } from 'services/api/product';
 
 const Products = () => {
   const [open, setOpen] = useState(false);
   const { alert, setAlert, toggleAlert } = useAlert();
 
   const API = endPoints.products.getProducts(0, 0);
+
   //hago uso del custom hook, el segundo argumento son los cambios que escucha
   const products = useGetProducts(API, alert);
+
+  const handleDelete = (id) => {
+    deleteProduct(id)
+      .then(() => {
+        setAlert({
+          active: true,
+          message: 'Producto eliminado con exito',
+          type: 'success',
+          autoClose: true,
+        });
+      })
+      .catch((error) => {
+        setAlert({
+          active: true,
+          message: error.message,
+          type: 'error',
+          autoClose: false,
+        });
+      });
+  };
 
   return (
     <>
@@ -128,9 +150,9 @@ const Products = () => {
                         </a>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a href="/edit" className="text-red-600 hover:text-red-900">
+                        <button className="text-red-600 hover:text-red-900" aria-hidden="true" onClick={() => handleDelete(prod.id)}>
                           Delete
-                        </a>
+                        </button>
                       </td>
                     </tr>
                   ))}

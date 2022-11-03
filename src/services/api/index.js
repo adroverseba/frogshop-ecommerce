@@ -11,9 +11,9 @@ export const endPoints = {
     getProducts: (limit, offset) => (limit === 0 && offset === 0 ? `${API}/api/${VERSION}/products` : `${API}/api/${VERSION}/products?limit=${limit}&offset=${offset}`),
     getProduct: (id) => `${API}/api/${VERSION}/products/${id}`,
     createProduct: `${API}/api/${VERSION}/products`,
+    updateProduct: (id) => `${API}/api/${VERSION}/products/${id}`,
+    deleteProduct: (id) => `${API}/api/${VERSION}/products/${id}`,
   },
-  updateProduct: (id) => `${API}/api/${VERSION}/products/${id}`,
-  deleteProduct: (id) => `${API}/api/${VERSION}/products/${id}`,
   users: {
     getUsers: `${API}/api/${VERSION}/users`,
     getUser: (id) => `${API}/api/${VERSION}/users/${id}`,

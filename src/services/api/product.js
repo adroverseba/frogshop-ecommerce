@@ -1,6 +1,4 @@
-// import { useState, useEffect } from 'react';
 import axios from 'axios';
-
 import { endPoints } from '.';
 
 export const addProduct = async (body) => {
@@ -14,19 +12,7 @@ export const addProduct = async (body) => {
   return data;
 };
 
-// export const getProducts = (API) => {
-//   const [products, setProducts] = useState([]);
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       const response = await axios.get(API);
-//       setProducts(response.data);
-//     };
-//     try {
-//       fetchData();
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }, [API]);
-//   return products;
-// };
+export const deleteProduct = async (id) => {
+  const response = await axios.delete(endPoints.products.deleteProduct(id));
+  return response.data;
+};
