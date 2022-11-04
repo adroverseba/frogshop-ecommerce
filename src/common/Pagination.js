@@ -16,7 +16,7 @@ export const Pagination = ({ setOffset, productLimit, totalQty }) => {
   //Se irá agregando al array los botones que aparecerán en el reglón de páginas
   for (let i = initial; i < final; i++) {
     itemsArray.push(
-      <a
+      <button
         key={`Page-${i}`}
         onClick={() => {
           setCurrent(i);
@@ -28,7 +28,7 @@ export const Pagination = ({ setOffset, productLimit, totalQty }) => {
                     relative inline-flex items-center px-4 py-2 border text-sm font-medium`}
       >
         {i}
-      </a>
+      </button>
     );
   }
 
@@ -68,12 +68,12 @@ export const Pagination = ({ setOffset, productLimit, totalQty }) => {
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
-        <a href="#" className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
+        <button href="#" className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
           Previous
-        </a>
-        <a href="#" className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
+        </button>
+        <button href="#" className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
           Next
-        </a>
+        </button>
       </div>
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
@@ -84,45 +84,41 @@ export const Pagination = ({ setOffset, productLimit, totalQty }) => {
         </div>
         <div>
           <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
-            <a
+            <button
               onClick={startButton}
-              href="#"
               className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50
                         relative inline-flex items-center px-2 py-2 rounded-l-md
                         border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
             >
               <span className="sr-only">Start</span>
               <ChevronDoubleLeftIcon className="h-5 w-5" aria-hidden="true" />
-            </a>
-            <a
+            </button>
+            <button
               onClick={prevButton}
-              href="#"
               className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50
                         relative inline-flex items-center px-2 py-2 rounded-l-md
                         border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
             >
               <span className="sr-only">Previous</span>
               <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
-            </a>
+            </button>
             {itemsArray}
-            <a
+            <button
               onClick={nextButton}
-              href="#"
               className="relative inline-flex items-center px-2 py-2 rounded-r-md
                         border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
             >
               <span className="sr-only">Next</span>
               <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
-            </a>
-            <a
+            </button>
+            <button
               onClick={endButton}
-              href="#"
               className="relative inline-flex items-center px-2 py-2 rounded-r-md
                         border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
             >
               <span className="sr-only">End</span>
               <ChevronDoubleRightIcon className="h-5 w-5" aria-hidden="true" />
-            </a>
+            </button>
           </nav>
         </div>
       </div>

@@ -1,10 +1,12 @@
+import { useRouter } from 'next/router';
 import { useRef, useState, useEffect } from 'react';
 import { createProductSchema } from 'schemas/product.schema';
-import { addProduct } from 'services/api/product';
+import { addProduct, updateProduct } from 'services/api/product';
 
 export function FormProduct({ setOpen, setAlert, product }) {
   const formRef = useRef(null);
   const [errorFormData, setErrorFormData] = useState([]);
+  const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,39 +20,64 @@ export function FormProduct({ setOpen, setAlert, product }) {
 
     const { error } = createProductSchema.validate(data, { abortEarly: false });
 
-    setErrorFormData([]);
     if (error) {
       const errorFormValidation = error.details.map((err) => err.message);
       return setErrorFormData(errorFormValidation);
       // console.log(error.details.map((err) => err.message));
     }
-    // console.log(data);
-    return addProduct(data)
-      .then(() => {
-        setAlert({
-          active: true,
-          message: 'Producto creado con exito',
-          type: 'success',
-          autoClose: true,
+
+    //para cuando existe product pasado por [id].js
+    if (product) {
+      // console.log(data);
+      return updateProduct(product.id, data)
+        .then(() => {
+          setAlert({
+            active: true,
+            message: 'Producto Actualizado con exito',
+            type: 'success',
+            autoClose: false,
+          });
+          console.log('producto actualizado');
+          setTimeout(() => {
+            router.push('/dashboard/products');
+          }, 2500);
+        })
+        .catch((error) => {
+          setAlert({
+            active: true,
+            message: error.message,
+            type: 'error',
+            autoClose: false,
+          });
         });
-        formRef.current.reset();
-        setOpen(false);
-      })
-      .catch((error) => {
-        setAlert({
-          active: true,
-          message: error.message,
-          type: 'error',
-          autoClose: true,
+    } else {
+      return addProduct(data)
+        .then(() => {
+          setAlert({
+            active: true,
+            message: 'Producto creado con exito',
+            type: 'success',
+            autoClose: true,
+          });
+          formRef.current.reset();
+          setOpen(false);
+        })
+        .catch((error) => {
+          setAlert({
+            active: true,
+            message: error.message,
+            type: 'error',
+            autoClose: true,
+          });
+          setOpen(false);
         });
-        setOpen(false);
-      });
+    }
   };
 
   //para cambiar el valor de category segun categoryId de product
   const categorySelectRef = useRef(null);
   useEffect(() => {
-    categorySelectRef.current.value = product.categoryId;
+    categorySelectRef.current.value = product?.categoryId;
   }, [product]);
 
   return (

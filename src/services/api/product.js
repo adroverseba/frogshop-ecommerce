@@ -12,6 +12,16 @@ export const addProduct = async (body) => {
   return data;
 };
 
+export const updateProduct = async (id, body) => {
+  const config = {
+    headers: {
+      accept: '*/*',
+      'Content-Type': 'application/json',
+    },
+  };
+  await axios.patch(endPoints.products.updateProduct(id), body, config);
+};
+
 export const deleteProduct = async (id) => {
   const response = await axios.delete(endPoints.products.deleteProduct(id));
   return response.data;
