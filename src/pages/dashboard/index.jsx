@@ -4,20 +4,11 @@ import Image from 'next/image';
 import { endPoints } from 'services/api';
 import { Pagination } from 'common/Pagination';
 import { Chart } from 'common/Chart';
-// import { PlusIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
-// import { Menu, Transition } from '@headlessui/react';
-// import Link from 'next/link';
 
 const PRODUCT_LIMIT = 4;
 const PRODUCT_OFFSET = 0;
 
-// const elementos = [
-//   { id: 1, name: 'Clothes', image: 'https://api.lorem.space/image/fashion?w=640&h=480&r=3714' },
-//   { id: 3, name: 'Furniture', image: 'https://api.lorem.space/image/furniture?w=640&h=480&r=9014' },
-//   { id: 3, name: 'Furniture', image: 'https://api.lorem.space/image/furniture?w=640&h=480&r=9014' },
-// ];
-
-export default function Dashboard() {
+function Dashboard() {
   const [offset, setOffset] = useState(PRODUCT_OFFSET);
 
   //llamo a los productos
@@ -35,7 +26,6 @@ export default function Dashboard() {
       acc[cur] = ++acc[cur] || 1;
       return acc;
     }, {});
-  // console.log(countConcurrences(categoryCount));
 
   const data = {
     datasets: [
@@ -121,3 +111,5 @@ export default function Dashboard() {
     </>
   );
 }
+
+export default Dashboard;
