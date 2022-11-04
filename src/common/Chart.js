@@ -3,7 +3,7 @@ import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-export const Chart = ({ chartData }) => {
+const Chart = ({ chartData }) => {
   return (
     <>
       <Bar
@@ -24,6 +24,7 @@ export const Chart = ({ chartData }) => {
   );
 };
 
+export default Chart;
 // reduce;
 // categories name
 // Clothes, Furniture, Others, Toys, Electronics
