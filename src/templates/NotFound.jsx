@@ -6,9 +6,9 @@ export const NotFound = () => {
   return (
     <div>
       <h1 className={styles['title-404']}>404</h1>
-      <p className="text-404">Oops! Pagina no encontrada.</p>
-      <Link className={styles['button-404']} href="/">
-        Regrese a la página inicial.
+      <p className={styles['text-404']}>Oops! Pagina no encontrada.</p>
+      <Link href="/">
+        <button className={styles['button-404']}>Regrese a la página inicial.</button>
       </Link>
     </div>
   );

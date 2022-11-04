@@ -1,8 +1,8 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { createProductSchema } from 'schemas/product.schema';
 import { addProduct } from 'services/api/product';
 
-export function FormProduct({ setOpen, setAlert }) {
+export function FormProduct({ setOpen, setAlert, product }) {
   const formRef = useRef(null);
   const [errorFormData, setErrorFormData] = useState([]);
 
@@ -20,10 +20,11 @@ export function FormProduct({ setOpen, setAlert }) {
 
     setErrorFormData([]);
     if (error) {
-      return setErrorFormData(error.details.map((err) => err.message));
+      const errorFormValidation = error.details.map((err) => err.message);
+      return setErrorFormData(errorFormValidation);
       // console.log(error.details.map((err) => err.message));
     }
-    console.log(data);
+    // console.log(data);
     return addProduct(data)
       .then(() => {
         setAlert({
@@ -46,6 +47,12 @@ export function FormProduct({ setOpen, setAlert }) {
       });
   };
 
+  //para cambiar el valor de category segun categoryId de product
+  const categorySelectRef = useRef(null);
+  useEffect(() => {
+    categorySelectRef.current.value = product.categoryId;
+  }, [product]);
+
   return (
     <form ref={formRef}>
       <div className="overflow-hidden">
@@ -55,20 +62,34 @@ export function FormProduct({ setOpen, setAlert }) {
               <label htmlFor="title" className="block text-sm font-medium text-gray-700">
                 Title
               </label>
-              <input type="text" name="title" id="title" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+              <input
+                defaultValue={product?.name}
+                type="text"
+                name="title"
+                id="title"
+                className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+              />
             </div>
             <div className="col-span-6 sm:col-span-3">
               <label htmlFor="price" className="block text-sm font-medium text-gray-700">
                 Price
               </label>
-              <input type="number" name="price" id="price" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+              <input
+                defaultValue={product?.price}
+                type="number"
+                name="price"
+                id="price"
+                className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+              />
             </div>
             <div className="col-span-6">
               <label htmlFor="category" className="block text-sm font-medium text-gray-700">
                 Category
               </label>
               <select
+                ref={categorySelectRef}
                 id="category"
+                defaultValue={product?.categoryId}
                 name="category"
                 autoComplete="category-name"
                 className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -87,6 +108,7 @@ export function FormProduct({ setOpen, setAlert }) {
               </label>
               <textarea
                 name="description"
+                defaultValue={product?.description}
                 id="description"
                 autoComplete="description"
                 rows="3"
@@ -98,7 +120,13 @@ export function FormProduct({ setOpen, setAlert }) {
                 <label htmlFor="image" className="block text-sm font-medium text-gray-700">
                   Image url
                 </label>
-                <input type="text" name="image" id="image" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                <input
+                  type="text"
+                  defaultValue={product?.image}
+                  name="image"
+                  id="image"
+                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                />
               </div>
               {/* <div>
                 <label className="block text-sm font-medium text-gray-700">Cover photo</label>

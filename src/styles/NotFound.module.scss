@@ -13,16 +13,17 @@
   font-weight: 100;
 }
 
-.button-404 {
+div .button-404 {
   display: block;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 1.2em;
   text-decoration: none;
   color: var(--white);
   background-color: var(--hospital-green);
+  background-color: #acd9b2;
   padding: 1em;
   border-radius: 10px;
   text-align: center;
   width: 15em;
-  margin: 0 auto;
+  margin: 1em auto;
 }
