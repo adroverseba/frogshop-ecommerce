@@ -1,4 +1,4 @@
-import { useState, Fragment } from 'react';
+import { useState } from 'react';
 import { useGetProducts } from 'hooks/useGetProducts';
 import Image from 'next/image';
 import { endPoints } from 'services/api';
@@ -89,16 +89,6 @@ function Dashboard() {
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{prod.category.name}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a href="/edit" className="text-indigo-600 hover:text-indigo-900">
-                          Edit
-                        </a>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a href="/edit" className="text-red-600 hover:text-red-900">
-                          Delete
-                        </a>
-                      </td>
                     </tr>
                   ))}
                 </tbody>
