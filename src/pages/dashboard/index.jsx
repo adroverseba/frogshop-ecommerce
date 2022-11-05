@@ -42,7 +42,7 @@ function Dashboard() {
   };
   return (
     <>
-      <Chart className="mb-8 mt-2 h-4" chartData={data} />
+      {products && <Chart className="mb-8 mt-2 h-4" chartData={data} />}
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 ">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">

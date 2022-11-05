@@ -7,7 +7,6 @@ const Chart = ({ chartData }) => {
   return (
     <>
       <Bar
-        data={chartData}
         options={{
           title: {
             display: true,
@@ -19,6 +18,7 @@ const Chart = ({ chartData }) => {
             position: 'right',
           },
         }}
+        data={chartData}
       />
     </>
   );
