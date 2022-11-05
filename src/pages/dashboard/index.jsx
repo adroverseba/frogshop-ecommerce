@@ -3,7 +3,7 @@ import { useGetProducts } from 'hooks/useGetProducts';
 import Image from 'next/image';
 import { endPoints } from 'services/api';
 import { Pagination } from 'common/Pagination';
-import Chart from 'common/Chart';
+// import Chart from 'common/Chart';
 
 const PRODUCT_LIMIT = 4;
 const PRODUCT_OFFSET = 0;
@@ -42,7 +42,7 @@ function Dashboard() {
   };
   return (
     <>
-      {products && <Chart className="mb-8 mt-2" chartData={data} />}
+      {/* {products && <Chart className="mb-8 mt-2" chartData={data} />} */}
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 ">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
