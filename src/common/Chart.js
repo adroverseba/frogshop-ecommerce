@@ -8,14 +8,17 @@ const Chart = ({ chartData }) => {
     <>
       <Bar
         options={{
-          title: {
-            display: true,
-            text: 'Category',
-            fontSize: 20,
-          },
-          legend: {
-            display: true,
-            position: 'right',
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: 'Category',
+              // fontSize: 20,
+            },
+            legend: {
+              display: true,
+              position: 'right',
+            },
           },
         }}
         data={chartData}

@@ -20,7 +20,7 @@ function Dashboard() {
 
   //datos para Chart
   const categoryNames = products?.map((prod) => prod.category);
-  const categoryCount = categoryNames?.map((elem) => elem.name);
+  const categoryCount = categoryNames?.map((categ) => categ.name);
 
   const countConcurrences = (arr) =>
     arr.reduce((acc, cur) => {
