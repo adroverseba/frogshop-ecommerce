@@ -23,7 +23,7 @@ export const Login = () => {
 
     try {
       await signIn(data.username, data.password);
-      console.log('login succes');
+      console.log('login success');
       setErrorLogin(null);
       router.push('/dashboard');
     } catch (error) {
@@ -55,10 +55,12 @@ export const Login = () => {
             Log in
           </button>
           <div className="my-5 text-warmGray-400 ">
-            <Link href="/">Forgot my password</Link>
+            <Link href="/recovery-password">Forgot my password</Link>
           </div>
         </form>
-        <button className={(styles['secondary-button'], styles['signup-button'])}>Sign up</button>
+        <Link href={'/signup'}>
+          <button className={(styles['secondary-button'], styles['signup-button'])}>Sign up</button>
+        </Link>
         {errorLogin && (
           <div className="p-3 my-1 bg-red-200 rounded-lg text-red-700 text-center ">
             <span className="font-medium">{errorLogin}</span>

@@ -1,4 +1,4 @@
-@use "./vars";
+@import './vars';
 
 .CreateAccount {
   width: 100%;
@@ -17,11 +17,7 @@
   justify-self: center;
   display: none;
 }
-.title {
-  font-size: var(--lg);
-  margin-bottom: 36px;
-  text-align: start;
-}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -49,7 +45,7 @@
 .input-password {
   margin-bottom: 22px;
 }
-.primary-button {
+.form .primary-button {
   background-color: var(--hospital-green);
   border-radius: 8px;
   border: none;

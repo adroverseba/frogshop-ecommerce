@@ -15,7 +15,9 @@ export const RecoveryPassword = () => {
         <div className={styles['email-image']}>
           <Image src={emailIcon} alt="email" />
         </div>
-        <button className={(styles['primary-button'], styles['login-button'])}>Login</button>
+        <Link href={'/login'}>
+          <button className="bg-green-300 rounded-lg p-2 transition ease-in-out delay-100 hover:scale-105 hover:bg-green-400 duration-300 hover:text-white">Login</button>
+        </Link>
         <p className={styles.resend}>
           <span>Didn`t receive the email?</span>
           <Link href="/">Resend</Link>
