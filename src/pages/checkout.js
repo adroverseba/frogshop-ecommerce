@@ -22,6 +22,12 @@ const Checkout = () => {
     state: { cart },
   } = useContext(AppContext);
   const today = new Date().toLocaleString();
+
+  const handlePurchase = () => {
+    alert('boton comprar');
+  };
+
+  const total = cart.reduce((acc, { price }) => acc + price, 0);
   return (
     <>
       <Head>
@@ -34,16 +40,22 @@ const Checkout = () => {
           {cart.length > 0 ? (
             <div className={styles['Checkout-content']}>
               <div>
-                <p>
-                  <span>{today}</span>
-                  <span>6 articles</span>
+                <p className="flex justify-between">
+                  <span className="text-gray-500 ">{today}</span>
+                  <span className="font-bold ">{cart.length} articles</span>
                 </p>
-                <p>$560.00</p>
+                <p className=" flex justify-between mb-10">
+                  <span className="font-bold">total</span>
+                  <span className="font-bold">${total}</span>
+                </p>
 
                 {cart.map((prod, i) => (
                   <OrderItem product={prod} key={i} />
                 ))}
               </div>
+              <button className="bg-green-300 p-2 rounded-md hover:scale-105 delay-100 ease-in-out hover:bg-green-400 duration-300 hover:text-white" onClick={() => handlePurchase()}>
+                Comprar
+              </button>
             </div>
           ) : (
             <h3 className="font-bold text-center text-xl">Aun no elegiste ningun producto </h3>
